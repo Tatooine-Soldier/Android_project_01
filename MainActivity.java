@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -97,6 +98,16 @@ public class MainActivity extends AppCompatActivity {
     public void handleText(View v) {
         TextView t = findViewById(R.id.editTextTextPersonName);
         String input = t.getText().toString();
+
+        TextView displayName = findViewById(R.id.textView2);
+        displayName.setText(input);
+
+        Button sub = findViewById(R.id.button3);
+        sub.setVisibility(View.GONE);
+
+        t.setVisibility(View.GONE);
+
+        Toast.makeText(this, input, Toast.LENGTH_LONG).show();
 
         Log.d("info", input);
     }
