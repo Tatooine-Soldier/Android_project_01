@@ -18,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
 //    public static String[] items;
     public List<String> items = new ArrayList<String>();
     public String output;
+    public Boolean dataThere;
 
 
     @Override
@@ -27,15 +28,23 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void setItems(String s) {
-        items.add(s);
+        TextView displayText = findViewById(R.id.textView6);
+        displayText.clearComposingText();
+        if (!(items.contains(s))) {
+            items.add(s);
+        }
+
     }
 
     public String getItems() {
         for (String i : items) {
             output = output + "\n" + i;
-            TextView displayText = findViewById(R.id.textView6);
-            displayText.setText(output);
-        } return "Finished";
+        }
+
+        output = output + "\n--------------\n";
+        TextView displayText = findViewById(R.id.textView6);
+        displayText.setText(output);
+            return "Finished";
     }
 
     public void addToList(View v) {
